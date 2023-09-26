@@ -9,7 +9,6 @@ import '@/App.less';
 //错误边界
 import { ErrorBoundary } from '@/components/error-boundary/error-boundary';
 
-// FC  是 FunctionComponent
 export const App: FC = () => {
     const { userData } = useAuth();
     return (
