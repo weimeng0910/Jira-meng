@@ -1,0 +1,63 @@
+{
+    "comments": false,
+    "presets": [
+        //["@emotion/babel-preset-css-prop"],
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        ["@babel/preset-typescript"],
+        [
+            "@babel/env",
+            {
+                "targets": { "browsers": ["> 1%", "last 2 versions", "not ie <= 8"] },
+                "useBuiltIns": "usage",
+                "corejs": 3,
+                "loose": true
+            }
+        ],
+        "@babel/react",
+        ["@babel/preset-react", { "runtime": "automatic" }],
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        //给antd做按需加载
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "es",
+                "style": true
+            },
+            "antd"
+        ],
+
+        //用来做注入代码优化的
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": false,
+                "helpers": true,
+                "regenerator": true,
+                "useESModules": false
+            }
+        ],
+        "dynamic-import-node",
+        "@babel/plugin-transform-arrow-functions",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-object-rest-spread",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
+        ["@babel/plugin-proposal-private-methods", { "loose": true }],
+        [
+            "@babel/plugin-transform-react-jsx",
+            {
+                "runtime": "automatic"
+            }
+        ]
+    ]
+}

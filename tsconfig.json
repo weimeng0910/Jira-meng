@@ -1,0 +1,80 @@
+{
+    "ts-node": {
+        // 这个是属于ts-node去编译配置文件的时候会执行的配置和开发的配置有所不同
+        "compilerOptions": {
+            "module": "commonjs",
+            "target": "es5",
+            "sourceMap": true,
+            "removeComments": true,
+            "strict": true,
+            "noImplicitAny": true,
+            "strictNullChecks": true,
+            "moduleResolution": "node",
+            "baseUrl": "./",
+            "typeRoots": ["typings/*.d.ts", "node_modules/@types"],
+            "esModuleInterop": true
+        },
+        "exclude": ["node_modules", "_tests_"],
+        "include": ["config/*", "typings/*.d.ts", "src/*"]
+    },
+
+    "compilerOptions": {
+        // 生成代码的模块标准
+        "module": "esnext", // 指定模块代码生成
+        /*用于指定编译之后的目标版本 version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'.*/
+        "target": "es5",
+        //用于指定要包含在编译中的库文件，如果你要使用一些ES6的新语法，你需要引入ES6这个库，或者也可以写ES2015
+        "lib": ["dom", "dom.iterable", "esnext"], // 要包含在编译中的依赖库文件列表
+        "baseUrl": ".",
+        "jsx": "react-jsx", // 在.tsx文件中支持JSX
+        "types": ["node", "jest", "@testing-library/jest-dom"],
+        "resolveJsonModule": true, // 允许使用 .json 扩展名导入的模块
+        "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入
+        "moduleResolution": "node", // 使用 Node.js 风格解析模块
+        "forceConsistentCasingInFileNames": true, // 不允许对同一个文件使用不一致格式的引用
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "removeComments": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true, // 报告未使用的本地变量的错误
+        "allowJs": true, // 允许编译 JavaScript 文件
+        "skipLibCheck": true, // 跳过所有声明文件的类型检查
+        "esModuleInterop": true, // 禁用命名空间引用 (import * as fs from "fs") 启用 CJS/AMD/UMD 风格引用 (import fs from "fs")
+        "declaration": false, //不生成.d.ts文件
+        "strict": true, // 启用所有严格类型检查选项
+
+        // "strictNullChecks":true,//严格的空检查 -strictNullChecks
+
+        "noEmit": true, // 不输出(意思是不编译代码，只执行类型检查)
+
+        "sourceMap": true, // 生成相应的.map文件
+
+        "noUnusedParameters": true, // 报告未使用参数的错误
+        "experimentalDecorators": true, // 启用对ES装饰器的实验性支持
+        "incremental": true, // 通过从以前的编译中读取/写入信息到磁盘上的文件来启用增量编译
+        "noFallthroughCasesInSwitch": true,
+
+        "paths": {
+            "crypto": ["node_modules/crypto-js"],
+            "utils/*": ["src/utils/*"],
+            "@/*": ["./src/*"]
+        }
+    },
+    "awesomeTypescriptLoaderOptions": {
+        /* ... */
+    },
+    //include也可以指定要编译的路径列表，但是和files的区别在于，这里的路径可以是文件夹，也可以是文件，可以使用相对和绝对路径
+    "include": [
+        "src/**/*",
+        "typings/**/*",
+        ".eslintrc.js",
+        ".stylelintrc.js",
+        ".prettierrc.js",
+        "src/config/env.js",
+        "util/openBrowser.js"
+    ],
+    //exclude表示要排除的、不编译的文件，他也可以指定一个列表
+    "exclude": ["node_modules", "build", "dist", "**/*.test.ts", "**/*.spec.ts"]
+    // 自动双引号
+    // "quotemark": [true, "single", "jsx-double"]
+}
