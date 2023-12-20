@@ -1,3 +1,7 @@
+/*
+ * @Date: 2023-06-09 12:38:54
+ * @Description: Do not edit
+ */
 import styled from '@emotion/styled';
 import { Popover, Typography, List, Divider } from 'antd';
 
@@ -16,6 +20,8 @@ export const ProjectPopover = () => {
     const { open } = useProjectModal();
     //获取projects数据
     const { data: projects, refetch } = useProjects();
+    console.log(projects, '001');
+
     //获得pin收藏项目数据
     const pinnedProjects = projects?.filter((project: Project) => project.pin);
 

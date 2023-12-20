@@ -1,8 +1,6 @@
-/**
- * @author meng
- * @version 1.0
- * @date 2022/11/28
- * @file 项目列表
+/*
+ * @Date: 2023-06-09 12:38:54
+ * @Description: 项目列表
  */
 import styled from '@emotion/styled';
 import { Button } from 'antd';
@@ -33,7 +31,9 @@ export const ProjectListScreen = () => {
     //const projectParam = { ...param, personId: Number(param.personId) || undefined };
     //从获取url中参数的hook中解构param参数
     const [param, setParam] = useProjectSearchParam();
+
     const debounceParam = useDebounce(param, 2000);
+
     //自定义hook抽像两层，把数据获取隐藏在hook useProjects useUser 中
     //定义请求的工程列表的状态
     const { isLoading, error, data: list } = useProjects(debounceParam);

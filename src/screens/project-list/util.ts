@@ -1,10 +1,8 @@
-/**
- * @author meng
- * @version 1.0
- * @date 2023/1/4
- * @file 获取项目列表搜索的参数，从url参数param获取
- * 返回页面url中，指定键的参数值
+/*
+ * @Date: 2023-06-09 12:38:54
+ * @Description: 获取项目列表搜索的参数，从url参数param获取 返回页面url中，指定键的参数值
  */
+
 import { useMemo } from 'react';
 
 import { useSetUrlSearchParam, useUrlQueryParam } from '@/utils/hooks/useUrlQueryParam';
@@ -35,6 +33,7 @@ export const useProjectsQueryKey = () => {
   const [params] = useProjectSearchParam();
   return ['projects', params];
 };
+
 /**
  * @hook 从url参数param获取状态，这个hook在这里扮演全局状态管理器的作用，可以取代redux和context的作用
  * 向需要使用这个状态的地方提供全局状态

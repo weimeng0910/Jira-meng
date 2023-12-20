@@ -35,7 +35,7 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "removeComments": true,
-        "suppressImplicitAnyIndexErrors": true,
+
         "noUnusedLocals": true, // 报告未使用的本地变量的错误
         "allowJs": true, // 允许编译 JavaScript 文件
         "skipLibCheck": true, // 跳过所有声明文件的类型检查
